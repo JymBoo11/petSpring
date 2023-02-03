@@ -15,10 +15,14 @@
  */
 package org.springframework.samples.petclinic.vet;
 
+import jakarta.xml.bind.annotation.XmlElement;
 import org.springframework.samples.petclinic.model.NamedEntity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Models a {@link Vet Vet's} specialty (for example, dentistry).
@@ -28,5 +32,6 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "specialties")
 public class Specialty extends NamedEntity {
+
 
 }
