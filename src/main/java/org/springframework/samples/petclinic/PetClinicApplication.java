@@ -57,30 +57,58 @@ public class PetClinicApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(PetClinicApplication.class, args);
 	}
-	Vet vet = new Vet();
-	Scanner teclado = new Scanner(System.in);
+
+
 	@Bean
 	public CommandLineRunner demoVetRepository(VetRepository vetRepository, SpecialtyRepository specialtyRepository) {
 		return (args) -> {
-			System.out.println("Introduce el id: ");
-			int id = Integer.parseInt(teclado.nextLine());
-			vet.setId(id);
-			System.out.println("Introduce el nombre: ");
-			String nombre = teclado.nextLine();
-			vet.setFirstName(nombre);
-			System.out.println("Introduce el apellido: ");
-			String apellido = teclado.nextLine();
-			vet.setLastName(apellido);
-			System.out.println(vet.getFirstName()+" "+ vet.getLastName());
+			int ctrl = 1;
+			
+
+			/*
+			while (ctrl == 1){
+
+				Scanner teclado = new Scanner(System.in);
+				int resp = 0;
+				System.out.println("1. Añadir nuevo veterinario sin especialidad");
+				System.out.println("2. Buscar veteriniario por id");
+				System.out.println("3. Añadir especialidad");
+				System.out.println("4. Lista de veterinarios");
+
+				if (resp == 1){
+
+					Vet vet = new Vet();
+					System.out.println("Introduce el nombre: ");
+					String nombre = teclado.nextLine();
+					vet.setFirstName(nombre);
+					System.out.println("Introduce el apellido: ");
+					String apellido = teclado.nextLine();
+					vet.setLastName(apellido);
+					vetRepository.save(vet);
+					System.out.println("Se ha guardado: ");
+					System.out.println(vet.getId()+" "+vet.getFirstName()+" "+ vet.getLastName());
+
+				}else if (resp == 2){
+
+					System.out.println("Introduce el id a buscar: ");
+					int id = Integer.parseInt(teclado.nextLine());
+					System.out.println(vetRepository.findById(id));
 
 
+				}else if (resp == 3){
+
+					System.out.println("Añadiendo especialidad al último creado");
+
+				}else if (resp == 4){
+
+					System.out.println("Listado de veterinarios");
+
+				}
+			}
+			 */
 
 		};
+
 	}
 
-	@Transactional
-	@Cacheable("vets")
-	Vet save( ) throws DataAccessException {
-		return null;
-	}
 }
